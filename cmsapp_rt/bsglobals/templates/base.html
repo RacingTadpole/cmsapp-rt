@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load cms_tags sekizai_tags menu_tags placeholder_tags %}
+<html>
+  <head>
+      <title>My Site</title>
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      {% block head_placeholder %}{% render_placeholder BSGLOBAL.head_placeholder %}{% endblock %}
+      {% block inherited_head %}{% placeholder inherited_head inherit %}{% endblock %}
+      {% render_block "css" %}
+
+      {% addtoblock "css" %}
+      <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      {% endaddtoblock %}
+
+      {% if BSGLOBAL.pad_body_for_navbar_fixed_top %}
+      {% addtoblock "css" %} {# this is needed between bootstrap.css and bootstrap-responsive.css if using fixed navbar #}
+      <style type="text/css">
+      body {padding-top: {{ BSGLOBAL.pad_body_for_navbar_fixed_top }}px;}
+      </style>
+      {% endaddtoblock %}
+      {% endif %}
+
+      {% addtoblock "css" %}
+      <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+      {% endaddtoblock %}
+      {% addtoblock "css" %}
+      <link href="{{ STATIC_URL }}css/my.css" rel="stylesheet">
+      {% endaddtoblock %}      
+
+      {% addtoblock "js" %}
+      <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      {% endaddtoblock %}
+
+      {% addtoblock "js" %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      {% endaddtoblock %}
+
+      {% addtoblock "js" %}
+      <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+      {% endaddtoblock %}
+  </head>
+
+  <body>
+      {% block top_placeholder %}<div class="top">{% render_placeholder BSGLOBAL.top_placeholder %}</div>{% endblock %}
+      {% block content %}{% endblock %}
+      {% block footer %}<footer class="container footer">{% placeholder inherited_footer inherit %}</footer>{% endblock %}
+      {% render_block "js" %}
+  </body>
+</html>
