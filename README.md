@@ -27,6 +27,7 @@ Quick start
 
       INSTALLED_APPS = (
           ...
+          'django_singleton_admin',
           'cmsapp_rt.bsglobals',
       )
 
@@ -37,10 +38,18 @@ Quick start
           'cmsapp_rt.bsglobals.context_processors.globals',
       )
 
+3. Extend the admin template "admin/base_site.py" using the base provided in
+   django-singleton-admin, instead of the usual "admin/base.html", i.e. using:
 
-3. Run `python manage.py syncdb` (or use `python manage.py migrate` if you are using South) to create the models.
+        {% extends "admin/singleton_enabled_base.html" %}
 
-4. Run `python manage.py loaddata blank_globals` to set up a blank line in the table (this is required).
+   Note that this template uses the "extrastyle" block, so if you also override that, you
+   will need to copy the contents of the provided template into your code instead.
+   (In that case you may not need to add the app to your installed apps either.)
 
-5. Look at cmsapp_rt/bsglobals/templates/base.html to see how to use this app in your templates.
+4. Run `python manage.py syncdb` (or use `python manage.py migrate` if you are using South) to create the models.
+
+5. Run `python manage.py loaddata blank_globals` to set up a blank line in the table (this is required).
+
+6. Look at cmsapp_rt/bsglobals/templates/base.html to see how to use this app in your templates.
 

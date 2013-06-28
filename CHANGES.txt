@@ -6,3 +6,7 @@ Fixed requirement for django-singletons.
 0.0.3
 -----
 Switched from django-singletons to the newly created django-singleton-admin
+
+0.0.4
+-----
+Updated README to reflect needs of django-singleton-admin
