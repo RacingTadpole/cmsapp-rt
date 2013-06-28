@@ -3,7 +3,10 @@ cmsapp-rt
 =====
 
 This package contains one app (including a context processor and example template) to help your Django-CMS project
-work with Twitter Bootstrap 
+work with Twitter Bootstrap.
+
+You may also find the cmsplugin-rt package helpful with this,
+e.g. to provide a navbar in the placeholder provided.
 
 Detailed documentation will be added to the "docs" directory.
 
@@ -15,7 +18,7 @@ I built these using:
 * Django 1.4
 * Django-CMS 2.3.5
 * South
-* django-singleton
+* django-singleton-admin
 
 Quick start
 -----------

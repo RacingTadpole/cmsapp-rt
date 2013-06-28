@@ -1,4 +1,6 @@
 include LICENSE.txt
 include CHANGES.txt
+include README.md
 recursive-include docs *
 recursive-include cmsapp_rt/*/templates *
+recursive-include cmsapp_rt/*/fixtures *

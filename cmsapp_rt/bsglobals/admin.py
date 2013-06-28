@@ -1,7 +1,10 @@
 from django.contrib import admin
-
 from cms.admin.placeholderadmin import PlaceholderAdmin
+from django_singleton_admin.admin import SingletonAdmin
 from models import BSGlobalSettings
 
-admin.site.register(BSGlobalSettings, PlaceholderAdmin)
+class BSGlobalSettingsAdmin(PlaceholderAdmin, SingletonAdmin):
+    pass
+
+admin.site.register(BSGlobalSettings, BSGlobalSettingsAdmin)
 

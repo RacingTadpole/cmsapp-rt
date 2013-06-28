@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name = 'cmsapp-rt',
-    version = '0.0.1',
+    version = '0.0.3',
     packages = find_packages(),   
     include_package_data = True,
     license = 'BSD License', 
@@ -30,4 +30,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     zip_safe = False,
+    install_requires = [
+        'django-singleton-admin',
+    ],
 )

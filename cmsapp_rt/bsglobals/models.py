@@ -2,9 +2,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from cms.models.fields import PlaceholderField
-from singleton_models.models import SingletonModel
 
-class BSGlobalSettings(SingletonModel):
+class BSGlobalSettings(models.Model):
     head_placeholder = PlaceholderField('head_placeholder', related_name="head_placeholders")
     top_placeholder = PlaceholderField('top_placeholder', related_name="top_placeholders")
     pad_body_for_navbar_fixed_top = models.IntegerField(_("Body padding"), null=True, blank=True,
