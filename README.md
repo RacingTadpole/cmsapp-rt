@@ -32,7 +32,8 @@ Quick start
       )
 
 2. Add the template context processor to your settings like this::
-
+      
+      from django_singleton_admin.admin import SingletonAdmin
       TEMPLATE_CONTEXT_PROCESSORS = (
           ...
           'cmsapp_rt.bsglobals.context_processors.globals',
